@@ -14,7 +14,7 @@ https://visualstudio.microsoft.com/pt-br/downloads/
 
 2 - Faça o download do arquivo compactado e execute o arquivo AUTO BATTLE:
 
-![Img 1](https://user-images.githubusercontent.com/37873121/184755615-908328ec-f272-48ad-95d2-e2c06d3245a4.png)
+![Img 1](https://user-images.githubusercontent.com/37873121/184755891-bd45118c-1e16-4a0f-a954-d281e847324d.png)
 
 3 - Dentro do Visual Studio inicie o projeto com o botão PLAY na parte superior:
 
