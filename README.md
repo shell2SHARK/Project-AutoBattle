@@ -20,14 +20,19 @@ https://visualstudio.microsoft.com/pt-br/downloads/
 
 ![Img 2](https://user-images.githubusercontent.com/37873121/184518940-a4d2b041-839c-4514-b85f-5698436e1453.png)
 
-## Bugs / Problemas atuais:
-- As direções cima, baixo, esquerda e direita estão invertidas in game;
-- O Player 1 é sempre o primeiro a atacar e o Player 0 o segundo seguindo essa ordem;
-- A vida de cada personagem não é mostrada dentro do jogo;
-- Ao final da partida não é revelado quem ganhou o jogo.
+## Melhorias da versão
+- Personagens possuem identificação nas Boxes (H para humano e I para Inimigo);
+- Posições são definidas de forma aleatória no campo;
+- Ordem de quem começa primeiro é também aleatória;
+- Feedbacks mais claros de vida e dano causados;
+- Finalização indicando quem ganhou a batalha.
+
+## Bugs / Problemas atuais
+- O campo de batalha ainda não é respansível;
+- Os personagens não possuem seus valores de atributos definidos ainda; 
 
 ## Versão do Projeto
-1.0.0
+1.0.1
 
 ## Desenvolvedor Responsável
 
