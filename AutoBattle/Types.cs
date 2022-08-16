@@ -6,14 +6,12 @@ namespace AutoBattle
 {
     public class Types
     {
-
         public struct CharacterClassSpecific
         {
             CharacterClass CharacterClass;
             float hpModifier;
             float ClassDamage;
             CharacterSkills[] skills;
-
         }
 
         public struct GridBox
@@ -22,15 +20,16 @@ namespace AutoBattle
             public int yIndex;
             public bool ocupied;
             public int Index;
+            public string charType;
 
-            public GridBox(int x, int y, bool ocupied, int index)
+            public GridBox(int x, int y, bool ocupied, int index, string charType)
             {
                 xIndex = x;
                 yIndex = y;
                 this.ocupied = ocupied;
                 this.Index = index;
+                this.charType = charType;
             }
-
         }
 
         public struct CharacterSkills
@@ -42,10 +41,10 @@ namespace AutoBattle
 
         public enum CharacterClass : uint
         {
-            Paladin = 1,
-            Warrior = 2,
-            Cleric = 3,
-            Archer = 4
+            Paladino = 1,
+            Guerreiro = 2,
+            Clerico = 3,
+            Arqueiro = 4
         }
 
     }
