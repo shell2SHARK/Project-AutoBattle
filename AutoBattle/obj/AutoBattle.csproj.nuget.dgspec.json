@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v2\\AutoBattle.csproj": {}
+    "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v1.1.0\\AutoBattle.csproj": {}
   },
   "projects": {
-    "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v2\\AutoBattle.csproj": {
+    "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v1.1.0\\AutoBattle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v2\\AutoBattle.csproj",
+        "projectUniqueName": "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v1.1.0\\AutoBattle.csproj",
         "projectName": "AutoBattle",
-        "projectPath": "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v2\\AutoBattle.csproj",
+        "projectPath": "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v1.1.0\\AutoBattle.csproj",
         "packagesPath": "C:\\Users\\LuLoko\\.nuget\\packages\\",
-        "outputPath": "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v2\\obj\\",
+        "outputPath": "D:\\Downloads\\Kokku\\AutoBattle\\AutoBattle v1.1.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LuLoko\\AppData\\Roaming\\NuGet\\NuGet.Config",

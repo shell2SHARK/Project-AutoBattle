@@ -12,13 +12,23 @@ namespace AutoBattle
         public float health;
         public float baseDamage;
         public float damageMultiplier { get; set; }
-        public int playerIndex;
-        public GridBox currentBox;
-        public Character target { get; set; } 
+        public string playerType; // Se é humano ou inimigo
+        public GridBox currentBox; // Valores da box atual
+        public CharacterSkills charSkillsValue;// Atributos de skill recebidos do script Program.cs
+        public Character target { get; set; } // Alvo inimigo setado pelo script Program.cs
 
         public Character(CharacterClass characterClass)
         {
+            
+        }
 
+        public void DefineSkills()
+        {
+            // Define cada valor de skill vindos de charSkillsValue
+            name = charSkillsValue.name;
+            health = charSkillsValue.life;
+            baseDamage = charSkillsValue.damage;
+            damageMultiplier = charSkillsValue.damageMultiplier;
         }
 
         public bool TakeDamage(float amount)
@@ -28,11 +38,11 @@ namespace AutoBattle
         }
 
         public void EndGame()
-        {
-            Console.WriteLine($"Player {target.name} venceu o {name}!");
+        {     
+            Console.WriteLine($"Player {name} venceu o {target.name}!");
         }
 
-        public void StartTurn(Grid battlefield)//alterado
+        public void StartTurn(Grid battlefield)
         {
             if (CheckCloseTargets(battlefield)) 
             {
@@ -40,84 +50,83 @@ namespace AutoBattle
                 return;
             }
             else
-            {                   
-                // if there is no target close enough, calculates in wich direction this character should move to be closer to a possible target
+            {
+                //Se não tem um alvo próximo, calcula a menor distancia entre o próximo alvo para se mover até lá
                 if (this.currentBox.xIndex > target.currentBox.xIndex)
                 {
                     Console.WriteLine($"Player {name} andou pra esquerda");
                     currentBox.ocupied = false;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    currentBox = battlefield.grids.Find(x => x.Index == currentBox.Index - 1);
+                    battlefield.grids[currentBox.index] = currentBox;
+                    currentBox = battlefield.grids.Find(x => x.index == currentBox.index - 1);
                     currentBox.ocupied = true;
-                    currentBox.charType = name;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    battlefield.DrawBattlefield(5, 5);
+                    currentBox.charType = playerType;
+                    battlefield.grids[currentBox.index] = currentBox;
+                    battlefield.DrawBattlefield();
                     return;
                 }
                 else if(currentBox.xIndex < target.currentBox.xIndex)
                 {
                     Console.WriteLine($"Player {name} andou pra direita");
                     currentBox.ocupied = false;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    currentBox = battlefield.grids.Find(x => x.Index == currentBox.Index + 1);
+                    battlefield.grids[currentBox.index] = currentBox;
+                    currentBox = battlefield.grids.Find(x => x.index == currentBox.index + 1);
                     currentBox.ocupied = true;
-                    currentBox.charType = name;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    battlefield.DrawBattlefield(5, 5);
+                    currentBox.charType = playerType;
+                    battlefield.grids[currentBox.index] = currentBox;
+                    battlefield.DrawBattlefield();
                     return;
                 }
-
-                if (this.currentBox.yIndex > target.currentBox.yIndex)
+                else if (this.currentBox.yIndex > target.currentBox.yIndex)
                 {
                     Console.WriteLine($"Player {name} andou pra cima");
                     currentBox.ocupied = false;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    currentBox = battlefield.grids.Find(x => x.Index == currentBox.Index - battlefield.xLenght);
+                    battlefield.grids[currentBox.index] = currentBox;
+                    currentBox = battlefield.grids.Find(x => x.index == currentBox.index - battlefield.yLength);
                     currentBox.ocupied = true;
-                    currentBox.charType = name;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    battlefield.DrawBattlefield(5, 5);
+                    currentBox.charType = playerType;
+                    battlefield.grids[currentBox.index] = currentBox;
+                    battlefield.DrawBattlefield();
                     return;
                 }
                 else if(this.currentBox.yIndex < target.currentBox.yIndex)
                 {
                     Console.WriteLine($"Player {name} andou pra baixo");
                     currentBox.ocupied = false;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    currentBox = battlefield.grids.Find(x => x.Index == currentBox.Index + battlefield.xLenght);
+                    battlefield.grids[currentBox.index] = currentBox;
+                    currentBox = battlefield.grids.Find(x => x.index == currentBox.index + battlefield.yLength);
                     currentBox.ocupied = true;
-                    currentBox.charType = name;
-                    battlefield.grids[currentBox.Index] = currentBox;
-                    battlefield.DrawBattlefield(5, 5);
+                    currentBox.charType = playerType;
+                    battlefield.grids[currentBox.index] = currentBox;
+                    battlefield.DrawBattlefield();
                     return;
-                }              
+                }
             }
         }
 
-        // Check in x and y directions if there is any character close enough to be a target.
+        // Verifica se nas posições X e Y existe algum inimigo perto o suficiente para ser atacado ou não
         bool CheckCloseTargets(Grid battlefield)
         {
-            bool left = (battlefield.grids.Find(x => x.Index == currentBox.Index - 1).ocupied);
-            bool right = (battlefield.grids.Find(x => x.Index == currentBox.Index + 1).ocupied);
-            bool up = (battlefield.grids.Find(x => x.Index == currentBox.Index + battlefield.xLenght).ocupied);
-            bool down = (battlefield.grids.Find(x => x.Index == currentBox.Index - battlefield.xLenght).ocupied);
+            bool left = battlefield.grids.Find(x => x.index == currentBox.index - 1).ocupied;
+            bool right = battlefield.grids.Find(x => x.index == currentBox.index + 1).ocupied;
+            bool up = battlefield.grids.Find(x => x.index == currentBox.index + battlefield.yLength).ocupied;
+            bool down = battlefield.grids.Find(x => x.index == currentBox.index - battlefield.yLength).ocupied;
 
             if (left || right || up || down)
             {
-                Console.WriteLine("Hora da batalha!");
                 return true;
             }
 
             return false; 
         }
 
-        public void Attack (Character target)
+        public void Attack(Character target)
         {
             var rand = new Random();
             int damageValue = rand.Next(0, (int)baseDamage);
-            target.TakeDamage(damageValue);
-            Console.WriteLine($"Player {name} está atacando {target.name} e deu {damageValue} de dano!\n");
+            target.TakeDamage(damageValue * damageMultiplier);
+            Console.WriteLine($"Player {name} está atacando {target.name} e deu {damageValue * damageMultiplier} de dano!\n");
             Console.WriteLine($"Health {name} | {health} --- Health {target.name} | {target.health}");
+            Console.Write(Environment.NewLine + Environment.NewLine);
         }
     }
 }

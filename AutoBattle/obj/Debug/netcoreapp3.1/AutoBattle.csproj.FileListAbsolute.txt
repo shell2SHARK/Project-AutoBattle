@@ -30,3 +30,16 @@ D:\Downloads\Kokku\AutoBattle\AutoBattle v2\bin\Debug\netcoreapp3.1\AutoBattle.r
 D:\Downloads\Kokku\AutoBattle\AutoBattle v2\bin\Debug\netcoreapp3.1\AutoBattle.dll
 D:\Downloads\Kokku\AutoBattle\AutoBattle v2\bin\Debug\netcoreapp3.1\AutoBattle.pdb
 D:\Downloads\Kokku\AutoBattle\AutoBattle v2\obj\Debug\netcoreapp3.1\AutoBattle.genruntimeconfig.cache
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\bin\Debug\netcoreapp3.1\AutoBattle.exe
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\bin\Debug\netcoreapp3.1\AutoBattle.deps.json
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\bin\Debug\netcoreapp3.1\AutoBattle.runtimeconfig.json
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\bin\Debug\netcoreapp3.1\AutoBattle.runtimeconfig.dev.json
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\bin\Debug\netcoreapp3.1\AutoBattle.dll
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\bin\Debug\netcoreapp3.1\AutoBattle.pdb
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\obj\Debug\netcoreapp3.1\AutoBattle.csprojAssemblyReference.cache
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\obj\Debug\netcoreapp3.1\AutoBattle.AssemblyInfoInputs.cache
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\obj\Debug\netcoreapp3.1\AutoBattle.AssemblyInfo.cs
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\obj\Debug\netcoreapp3.1\AutoBattle.csproj.CoreCompileInputs.cache
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\obj\Debug\netcoreapp3.1\AutoBattle.dll
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\obj\Debug\netcoreapp3.1\AutoBattle.pdb
+D:\Downloads\Kokku\AutoBattle\AutoBattle v1.1.0\obj\Debug\netcoreapp3.1\AutoBattle.genruntimeconfig.cache
