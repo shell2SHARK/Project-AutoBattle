@@ -21,18 +21,17 @@ https://visualstudio.microsoft.com/pt-br/downloads/
 ![Img 2](https://user-images.githubusercontent.com/37873121/184518940-a4d2b041-839c-4514-b85f-5698436e1453.png)
 
 ## Melhorias da versão
-- Personagens possuem identificação nas Boxes (H para humano e I para Inimigo);
-- Posições são definidas de forma aleatória no campo;
-- Ordem de quem começa primeiro é também aleatória;
-- Feedbacks mais claros de vida e dano causados;
-- Finalização indicando quem ganhou a batalha.
+- Valores de X e Y do campo podem ser inseridos pelo usuário no console;
+- Campo totalmente expansível mesmo não sendo matriz quadrada;
+- Programa rodando sem nenhum erro ou aviso crítico;
+- Código comentado para facilitar alterações.
 
 ## Bugs / Problemas atuais
-- O campo de batalha ainda não é respansível;
-- Os personagens não possuem seus valores de atributos definidos ainda; 
+- Se o valor do campo a ser digitado não for númerico, o jogo não executa;
+- Feature do mês de Julho não inserida ainda.
 
 ## Versão do Projeto
-1.0.1
+1.1.0
 
 ## Desenvolvedor Responsável
 
