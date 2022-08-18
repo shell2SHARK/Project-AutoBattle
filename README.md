@@ -21,17 +21,14 @@ https://visualstudio.microsoft.com/pt-br/downloads/
 ![Img 2](https://user-images.githubusercontent.com/37873121/184518940-a4d2b041-839c-4514-b85f-5698436e1453.png)
 
 ## Melhorias da versão
-- Valores de X e Y do campo podem ser inseridos pelo usuário no console;
-- Campo totalmente expansível mesmo não sendo matriz quadrada;
-- Programa rodando sem nenhum erro ou aviso crítico;
-- Código comentado para facilitar alterações.
+- Agora os personagens podem tomar Knockback de forma aleatória e mudar de posição no campo;
+- Corrigido erro de personagens poderem atacar mesmo sem vida durante os turnos.
 
 ## Bugs / Problemas atuais
 - Se o valor do campo a ser digitado não for númerico, o jogo não executa;
-- Feature do mês de Julho não inserida ainda.
 
 ## Versão do Projeto
-1.1.0
+1.2.0 (Final)
 
 ## Desenvolvedor Responsável
 
