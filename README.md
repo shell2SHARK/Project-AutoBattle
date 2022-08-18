@@ -1,5 +1,7 @@
 # Projeto Auto Battle
 
+![Img 3](https://user-images.githubusercontent.com/37873121/185415910-b446c7ac-27ee-43d6-8cef-0e23c9bca666.png)
+
 Jogo estilo RPG de turnos 2D com movimentação em grade com limite de 2 jogadores.
 O objetivo principal é alcançar o adversário dentro de seu campo de movimento e atacá-lo automaticamente. Vence o personagem que derrotar primeiro seu inimigo.
 
