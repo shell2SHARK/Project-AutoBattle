@@ -11,23 +11,28 @@ namespace AutoBattle
     {
         static void Main(string[] args)
         {
-            int valueLineX;
-            int valueLineY;
+            // Marcador do turno atual
             int currentTurn = 0;
+            // Valores de largura e altura do campo
+            int valueLineX;
+            int valueLineY;         
+            // Para comparar a classe com o inimigo e não vir chars iguais para os dois jogadores
             int classHMNSelected = 0;
-            Grid grid;
+            // Campo de batalha do jogo
+            Grid grid; 
+            // Aloca e armazena as posições dos personagens no campo
             GridBox PlayerCurrentLocation;
             GridBox EnemyCurrentLocation;
+            // Armazena os dados de cada classe escolhidos pelos jogadores
             Character PlayerCharacter;
             Character EnemyCharacter;
+            // Guarda os jogadores escolhidos dentro de uma lista
             List<Character> AllPlayers = new List<Character>();
-
             // Atributos de cada classe podem ser alterados por aqui
             var paladinSkills = new CharacterSkills("Paladino", 100, 30, 3);
             var warriorSkills = new CharacterSkills("Guerreiro", 120, 40, 2);
             var clericSkills = new CharacterSkills("Clerico", 90, 20, 2);
             var archerSkills = new CharacterSkills("Arqueiro", 90, 10, 3);
-
             Setup(); 
 
             void Setup()
@@ -64,7 +69,6 @@ namespace AutoBattle
                 //Pede ao jogador para escolher uma possível classe de personagem para jogar
                 Console.WriteLine("Escolha sua classe:");
                 Console.WriteLine("[1] Paladino, [2] Guerreiro, [3] Clerico, [4] Arqueiro");
-                //store the player choice in a variable
                 string choice = Console.ReadLine();
 
                 switch (choice)
@@ -200,14 +204,14 @@ namespace AutoBattle
 
                 foreach (Character character in AllPlayers)
                 {
+                    // Adiciona a quantidade de Boxes criadas no campo para os personagens diretamente
+                    character.gridBoxesTotal = grid.grids.Count;
                     character.StartTurn(grid);
                 }
 
                 currentTurn++;
                 Console.WriteLine($"---- FIM DO {currentTurn}° TURNO ----");
                 HandleTurn();
-                return;
-
             }
 
             void HandleTurn()
@@ -215,23 +219,13 @@ namespace AutoBattle
                 // Caso um personagem morra e outro fique de pé, o método de vencedor é chamado de cada personagem
                 if(PlayerCharacter.health <= 0 && EnemyCharacter.health > 0)
                 {
-                    Console.Write(Environment.NewLine + Environment.NewLine);
                     EnemyCharacter.EndGame();
-                    Console.Write(Environment.NewLine + Environment.NewLine);
                     return;
                 } 
                 else if (EnemyCharacter.health <= 0 && PlayerCharacter.health > 0)
                 {
-                    Console.Write(Environment.NewLine + Environment.NewLine);
                     PlayerCharacter.EndGame();
-                    Console.Write(Environment.NewLine + Environment.NewLine);
                     return;
-                }
-                else if (EnemyCharacter.health <= 0 && PlayerCharacter.health <= 0)
-                {
-                    Console.Write(Environment.NewLine + Environment.NewLine);
-                    Console.WriteLine("Dano duplo...Ninguém venceu!\n");
-                    Console.Write(Environment.NewLine + Environment.NewLine);
                 }
                 else
                 {
@@ -256,6 +250,7 @@ namespace AutoBattle
                 int random = GetRandomInt(0,grid.grids.Count);
                 GridBox RandomLocation = (grid.grids.ElementAt(random));
 
+                //Se o campo não estiver ocupado pelo inimigo, o adiciona como seu
                 if (!RandomLocation.ocupied)
                 {
                     PlayerCurrentLocation = RandomLocation;
@@ -277,6 +272,7 @@ namespace AutoBattle
                 int random = GetRandomInt(0, grid.grids.Count);
                 GridBox RandomLocation = (grid.grids.ElementAt(random));
 
+                //Se o campo não estiver ocupado pelo inimigo, o adiciona como seu
                 if (!RandomLocation.ocupied)
                 {
                     EnemyCurrentLocation = RandomLocation;

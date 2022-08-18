@@ -8,15 +8,22 @@ namespace AutoBattle
 {
     public class Character
     {
-        public string name { get; set; }
+        //Total de Boxes recebido pelo script Program.cs
+        public int gridBoxesTotal;
+        // Atributos do personagem
         public float health;
         public float baseDamage;
         public float damageMultiplier { get; set; }
-        public string playerType; // Se é humano ou inimigo
-        public GridBox currentBox; // Valores da box atual
-        public CharacterSkills charSkillsValue;// Atributos de skill recebidos do script Program.cs
-        public Character target { get; set; } // Alvo inimigo setado pelo script Program.cs
-
+        public string name { get; set; }
+        // Se é humano ou inimigo
+        public string playerType;
+        // Recebe os valores da posição na box atual
+        public GridBox currentBox;
+        // Atributos de skill recebidos do script Program.cs
+        public CharacterSkills charSkillsValue;
+        // Alvo inimigo setado pelo script Program.cs
+        public Character target { get; set; } 
+        // A identificação da classe é recebida aqui
         public Character(CharacterClass characterClass)
         {
             
@@ -40,14 +47,40 @@ namespace AutoBattle
         public void EndGame()
         {     
             Console.WriteLine($"Player {name} venceu o {target.name}!");
+            Console.WriteLine("Obrigado por Jogar!");
+            Environment.Exit(0);
         }
 
         public void StartTurn(Grid battlefield)
         {
             if (CheckCloseTargets(battlefield)) 
             {
-                Attack(target);
-                return;
+                // Se o personagem tem vida e seu inimigo também, o ataque é realizado
+                if (health > 0 && target.health > 0)//alterado
+                {
+                    Attack(target);
+
+                    // Chance aleatória do personagem mudar de posição no campo após realizar ataque
+                    var rand = new Random();
+                    int chanceToKnockback = rand.Next(0, 100);
+
+                    if (chanceToKnockback > 85)
+                    {
+                        Console.WriteLine($"Player {name} tomou um empurrão do adversário!");
+                        int knockbackChar = rand.Next(0, gridBoxesTotal);
+                        currentBox.ocupied = false;
+                        battlefield.grids[currentBox.index] = currentBox;
+                        currentBox = battlefield.grids.Find(x => x.index == knockbackChar);
+                        currentBox.ocupied = true;
+                        currentBox.charType = playerType;
+                        battlefield.grids[currentBox.index] = currentBox;
+                        battlefield.DrawBattlefield();
+                    }
+                }
+                else
+                {
+                    return;
+                }               
             }
             else
             {

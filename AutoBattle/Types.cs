@@ -44,6 +44,7 @@ namespace AutoBattle
 
         public enum CharacterClass : uint
         {
+            //Identificação de cada personagem
             Paladino = 1,
             Guerreiro = 2,
             Clerico = 3,
